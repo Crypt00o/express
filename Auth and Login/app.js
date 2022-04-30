@@ -95,8 +95,8 @@ app.post("/home",(req,res)=>{
         res.status(200).redirect("/login");
     }
 })
-app.get("/*",(req,res)=>{
-            res.status(404).send("<h1> Error 404 Not found :(  </h1>");
+app.all("/*",(req,res)=>{
+            res.status(404).send("<h1 style="text-align:center" > Error 404 Not found :(  </h1>");
 });
 app.listen(port,host,()=>{
     console.log("Listening at %s:%s",host,port)
