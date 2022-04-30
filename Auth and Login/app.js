@@ -11,7 +11,7 @@ let host ='0.0.0.0'
 
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(cookieParser());
-
+app.use(express.static(__dirname+"/public")); //this middleware will help me serveing static files
 //define my middle ware 
 
 app.use((req,res,next)=>{
