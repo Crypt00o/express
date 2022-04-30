@@ -86,7 +86,7 @@ app.get("/home",(req,res)=>{
     else{
         res.status(200).sendFile(__dirname+'/public/home.html');
     }
-
+})
 //
 app.post("/home",(req,res)=>{
     if(req.body.logout=="logout"){
@@ -96,16 +96,8 @@ app.post("/home",(req,res)=>{
     }
 })
 app.get("/*",(req,res)=>{
-    res.sendFile(__dirname.concat("/public").concat(req.url) , (err)=>{
-         
-        if(err){
-            console.log("error")
-            res.status(404).send("<h1> Error 404 Not found :(  </h1>")
-        }
-    })
-})
+            res.status(404).send("<h1> Error 404 Not found :(  </h1>");
 });
-//
 app.listen(port,host,()=>{
     console.log("Listening at %s:%s",host,port)
 })
