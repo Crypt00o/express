@@ -74,7 +74,7 @@ app.post("/login",(req,res)=>{
       res.status(200).redirect("http://".concat(domain).concat("/home"));
   }
   else{
-      res.status(200).sendFile(__dirname+'/public/wrong-index.html');
+      res.status(200).sendFile(__dirname+'/public/relogin-index.html');
   }
 })
 
