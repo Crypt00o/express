@@ -36,7 +36,7 @@ let id,client_cookies;
 
 app.get("/",(req,res)=>{
     client_cookies=JSON.parse(JSON.stringify(req.cookies));
-    let checkCookies;
+   
   
     if(!(client_cookies.hasOwnProperty("user"))){
         res.status(200).redirect("http://".concat(domain).concat("/login"));
