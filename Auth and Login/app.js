@@ -39,11 +39,11 @@ app.get("/",(req,res)=>{
    
   
     if(!(client_cookies.hasOwnProperty("user"))){
-        res.status(200).redirect("/login");
+        res.status(301).redirect("/login");
     }
     else
     {
-        res.status(200).redirect("/home");
+        res.status(301).redirect("/home");
     }
 
 })
@@ -56,7 +56,7 @@ app.get("/login",(req,res)=>{
     }
  
     if(client_cookies.hasOwnProperty("user")){
-        res.status(200).redirect("/home");
+        res.status(301).redirect("/home");
     }
     else{
     res.status(200).sendFile(__dirname+'/public/index.html');
@@ -71,7 +71,7 @@ app.post("/login",(req,res)=>{
       res.cookie('user',req.body.user);
       res.cookie('login','Yes')
       res.cookie('login_times',(++(client_cookies.login_times)));
-      res.status(200).redirect("/home");
+      res.status(301).redirect("/home");
   }
   else{
       res.status(200).sendFile(__dirname+'/public/relogin-index.html');
@@ -81,7 +81,7 @@ app.post("/login",(req,res)=>{
 app.get("/home",(req,res)=>{
     let client_cookies=JSON.parse(JSON.stringify(req.cookies));
     if(!(client_cookies.hasOwnProperty("user"))){
-        res.status(200).redirect("/login");
+        res.status(301).redirect("/login");
     }
     else{
         res.status(200).sendFile(__dirname+'/public/home.html');
@@ -92,7 +92,7 @@ app.post("/home",(req,res)=>{
     if(req.body.logout=="logout"){
         res.clearCookie("user");
         res.cookie('login',"No");
-        res.status(200).redirect("/login");
+        res.status(301).redirect("/login");
     }
 })
 app.all("/*",(req,res)=>{
