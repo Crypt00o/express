@@ -10,9 +10,11 @@
 <h1> login form </h1>
     <form action="/login" method="post">
         
-        user: <input name="user" type="text" required /> <br />
-        Pass: <input name="pass" type="password" required /> <br />
+        user: <input name="user" type="text"  required minlength="5" maxlength="32"/> <br />
+        Pass: <input name="pass" type="password" required minlength="8" maxlength="32" /> <br />
         <input type="submit" value="login" />
+        <br>
+        <a href="./SignUp"> Don,t have an account ? ,  Sign Up </a>
     </form>
 </body>
 </html>
